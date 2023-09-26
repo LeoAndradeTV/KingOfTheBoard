@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
     [SerializeField] private List<BaseCard> possibleCards = new List<BaseCard>();
+    [SerializeField] private Button drawButton;
+    [SerializeField] private Button shuffleButton;
 
     private List<BaseCard> deckOfCards = new List<BaseCard>();
     private List<BaseCard> discardedCards = new List<BaseCard>();
@@ -17,6 +19,7 @@ public class Deck : MonoBehaviour
     {
         InitializeDictionary();
         InitializeDeck();
+        SetDrawAndShuffleButtons();
     }
 
     /// <summary>
@@ -42,12 +45,16 @@ public class Deck : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Draws cards based on the amount of empty locations on the board
+    /// </summary>
     public void DrawCards()
     {
         if (deckOfCards.Count == 0)
             return;
 
         List<int> emptyLocationsInHand = PlayerHand.Instance.GetEmptyLocations();
+
         foreach (var location in emptyLocationsInHand)
         {
             BaseCard card = deckOfCards[Random.Range(0, deckOfCards.Count)];
@@ -55,13 +62,30 @@ public class Deck : MonoBehaviour
             discardedCards.Add(card);
             deckOfCards.Remove(card);
         }
+
+        SetDrawAndShuffleButtons();
     }
 
-    private void ShuffleCards()
+    /// <summary>
+    /// Sends discarded cards back to the deck
+    /// </summary>
+    public void ShuffleCards()
     {
         if (discardedCards.Count == 0) 
             return;
 
+        foreach (var card in discardedCards)
+        {
+            deckOfCards.Add(card);
+        }
+        discardedCards.Clear();
 
+        SetDrawAndShuffleButtons();
+    }
+
+    private void SetDrawAndShuffleButtons()
+    {
+        drawButton.gameObject.SetActive(deckOfCards.Count > 0);
+        shuffleButton.gameObject.SetActive(deckOfCards.Count == 0);
     }
 }

@@ -821,7 +821,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 913680665}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1386453598}
+        m_TargetAssemblyTypeName: Deck, Assembly-CSharp
+        m_MethodName: ShuffleCards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &913680665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1249,6 +1261,8 @@ MonoBehaviour:
   possibleCards:
   - {fileID: 7546136744214866030, guid: c15d6ce08cfea174aabda4657a9b87f4, type: 3}
   - {fileID: 1950078612798795682, guid: 6a6698a3c794af24386ac441f4ba4c4e, type: 3}
+  drawButton: {fileID: 1104947988}
+  shuffleButton: {fileID: 913680664}
 --- !u!1 &1423303326
 GameObject:
   m_ObjectHideFlags: 0
