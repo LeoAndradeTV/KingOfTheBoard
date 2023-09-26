@@ -22,6 +22,10 @@ public class BaseCard : MonoBehaviour, IPlayable
         cardName.text = cardScriptableObject.cardName;
         cardDescription.text = cardScriptableObject.cardDescription;
         cardPrice.text = $"Price: {cardScriptableObject.cardPrice}";
+        if (cardScriptableObject.cardPrice == 0)
+        {
+            cardPrice.gameObject.SetActive(false);
+        }
     }
 
     public void OnClick()
