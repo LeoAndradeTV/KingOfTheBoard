@@ -12,7 +12,7 @@ public class BaseCard : MonoBehaviour, IPlayable
 
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         InitializeCard();
     }
