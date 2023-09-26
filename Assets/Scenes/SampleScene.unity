@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 18878219}
   - component: {fileID: 18878218}
   - component: {fileID: 18878217}
-  - component: {fileID: 18878220}
   m_Layer: 0
   m_Name: Board Canvas
   m_TagString: Untagged
@@ -227,22 +226,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &18878220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18878215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3cd7c0b9aa762f4cb56179f8219a2dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardScriptableObject: {fileID: 0}
-  cardName: {fileID: 0}
-  cardDescription: {fileID: 0}
-  cardPrice: {fileID: 0}
 --- !u!1 &293314631
 GameObject:
   m_ObjectHideFlags: 0
