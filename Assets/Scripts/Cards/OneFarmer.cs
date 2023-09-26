@@ -7,5 +7,6 @@ public class OneFarmer : BaseCard
     public override void Play()
     {
         base.Play();
+        Debug.Log("Played one farmer");
     }
 }

@@ -8,4 +8,5 @@ public class CardSO : ScriptableObject
     public string cardName;
     public string cardDescription;
     public int cardPrice;
+    public CardType cardType;
 }

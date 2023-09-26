@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class BaseCard : MonoBehaviour, IPlayable
 {
-    [SerializeField] protected CardSO cardScriptableObject;
-    [SerializeField] protected TMP_Text cardName;
-    [SerializeField] protected TMP_Text cardDescription;
-    [SerializeField] protected TMP_Text cardPrice;
+    [SerializeField] private CardSO cardScriptableObject;
+
+    [SerializeField] private TMP_Text cardName;
+    [SerializeField] private TMP_Text cardDescription;
+    [SerializeField] private TMP_Text cardPrice;
+
+    private CardType cardType;
 
 
     // Start is called before the first frame update
@@ -22,15 +25,34 @@ public class BaseCard : MonoBehaviour, IPlayable
         cardName.text = cardScriptableObject.cardName;
         cardDescription.text = cardScriptableObject.cardDescription;
         cardPrice.text = $"Price: {cardScriptableObject.cardPrice}";
-        if (cardScriptableObject.cardPrice == 0)
+        cardType = cardScriptableObject.cardType;
+        if (cardType == CardType.Bought)
         {
             cardPrice.gameObject.SetActive(false);
         }
     }
 
+    private void OnMouseDown()
+    {
+        OnClick();
+    }
+
     public void OnClick()
     {
-        Debug.Log($"Card Name: {cardScriptableObject.cardName}, Card Description: {cardScriptableObject.cardDescription}, Card Price: {cardScriptableObject.cardPrice}");
+        OpenMenu();
+    }
+
+    public void OpenMenu()
+    {
+        switch (cardType)
+        {
+            case CardType.Bought:
+                // TODO: Show play menu
+                break;
+            case CardType.Available:
+                PurchaseMenuManager.Instance.ShowMenu(this);
+                break;
+        }
     }
 
     public void OnClose()
@@ -40,12 +62,16 @@ public class BaseCard : MonoBehaviour, IPlayable
 
     public virtual void Play()
     {
+        Debug.Log("Play");
+    }
+
+    public virtual void PurchaseCard()
+    {
         
     }
 
-    private void OnMouseDown()
+    public CardSO GetScriptableObject()
     {
-        OnClick();
+        return cardScriptableObject;
     }
-
 }

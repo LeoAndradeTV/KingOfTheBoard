@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CardBankManager : MonoBehaviour
 {
+    public static CardBankManager Instance { get; private set; }
+
     [SerializeField] private Transform[] cardBankLocations;
     [SerializeField] private List<BaseCard> possibleCards = new List<BaseCard>();
     [SerializeField] private List<int> numberOfCards = new List<int>();
@@ -11,12 +13,22 @@ public class CardBankManager : MonoBehaviour
     private List<BaseCard> deckOfCards = new List<BaseCard>();
     private Dictionary<BaseCard, int> initialCards = new Dictionary<BaseCard, int>();
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         InitializeDictionary();
         InitializeDeck();
         UpdateCardBank();
+
+        Actions.OnCardBought += UpdateCardBank;
     }
 
     /// <summary>
@@ -24,8 +36,10 @@ public class CardBankManager : MonoBehaviour
     /// </summary>
     private void InitializeDictionary()
     {
-        initialCards[possibleCards[0]] = numberOfCards[0];
-        initialCards[possibleCards[1]] = numberOfCards[1];
+        for (int i = 0; i < possibleCards.Count; i++)
+        {
+            initialCards[possibleCards[i]] = numberOfCards[i];
+        }
     }
 
     /// <summary>
@@ -86,5 +100,11 @@ public class CardBankManager : MonoBehaviour
     private void PlaceCardInBank(BaseCard card, int locationIndex)
     {
         Instantiate(card, cardBankLocations[locationIndex]);
+    }
+
+    public void RemoveCardFromBank(BaseCard card)
+    {
+        DestroyImmediate(card.gameObject);
+        UpdateCardBank();
     }
 }

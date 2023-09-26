@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CardType
+public static class Actions
 {
-    Available,
-    Bought
+    public static Action OnCardBought;
 }

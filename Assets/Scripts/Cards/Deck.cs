@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
+    public static Deck Instance { get; private set; }
+
     [SerializeField] private List<BaseCard> possibleCards = new List<BaseCard>();
+    [SerializeField] private List<int> numberOfCards = new List<int>();
+
     [SerializeField] private Button drawButton;
     [SerializeField] private Button shuffleButton;
 
@@ -13,6 +17,14 @@ public class Deck : MonoBehaviour
     private List<BaseCard> discardedCards = new List<BaseCard>();
 
     Dictionary<BaseCard, int> initialCards = new Dictionary<BaseCard, int>();
+
+    private void Awake()
+    { 
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +39,10 @@ public class Deck : MonoBehaviour
     /// </summary>
     private void InitializeDictionary()
     {
-        initialCards[possibleCards[0]] = 5;
-        initialCards[possibleCards[1]] = 5;
+        for (int i = 0; i < possibleCards.Count; i++)
+        {
+            initialCards[possibleCards[i]] = numberOfCards[i];
+        }
     }
 
     /// <summary>
@@ -87,5 +101,10 @@ public class Deck : MonoBehaviour
     {
         drawButton.gameObject.SetActive(deckOfCards.Count > 0);
         shuffleButton.gameObject.SetActive(deckOfCards.Count == 0);
+    }
+
+    public void AddCardToDeck(BaseCard card)
+    {
+        deckOfCards.Add(card);
     }
 }

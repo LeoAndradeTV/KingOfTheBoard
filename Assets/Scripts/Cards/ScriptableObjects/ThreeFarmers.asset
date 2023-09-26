@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89d699db3c2dec046aae8f8ee87ed4f6, type: 3}
-  m_Name: OneFarmer
+  m_Name: ThreeFarmers
   m_EditorClassIdentifier: 
-  cardName: One Farmer
-  cardDescription: Harvest 1 of ANY material
-  cardPrice: 0
-  cardType: 1
+  cardName: Three Farmers
+  cardDescription: Harvest 3 of ANY material
+  cardPrice: 3
+  cardType: 0

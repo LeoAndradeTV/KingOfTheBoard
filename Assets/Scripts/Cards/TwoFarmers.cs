@@ -7,5 +7,7 @@ public class TwoFarmers : BaseCard
     public override void Play()
     {
         base.Play();
+        Debug.Log("Played two farmers");
+
     }
 }
