@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 18878219}
   - component: {fileID: 18878218}
   - component: {fileID: 18878217}
-  - component: {fileID: 18878220}
   m_Layer: 0
   m_Name: Board Canvas
   m_TagString: Untagged
@@ -227,22 +226,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &18878220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18878215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3cd7c0b9aa762f4cb56179f8219a2dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardScriptableObject: {fileID: 0}
-  cardName: {fileID: 0}
-  cardDescription: {fileID: 0}
-  cardPrice: {fileID: 0}
 --- !u!1 &293314631
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,7 +979,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1104947989}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1386453598}
+        m_TargetAssemblyTypeName: Deck, Assembly-CSharp
+        m_MethodName: DrawCards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1104947989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1607,6 +1602,7 @@ Transform:
   - {fileID: 1150482551}
   - {fileID: 18878216}
   - {fileID: 1386453597}
+  - {fileID: 1983797778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1877195466
@@ -1708,6 +1704,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1983797777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1983797778}
+  - component: {fileID: 1983797779}
+  m_Layer: 0
+  m_Name: Player Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1983797778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983797777}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1802229649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1983797779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983797777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f7679d4d28fda4786639862a73feee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardLocations:
+  - {fileID: 1877195467}
+  - {fileID: 614062683}
+  - {fileID: 293314632}
+  - {fileID: 783334742}
+  - {fileID: 874509767}
 --- !u!1 &2045808948
 GameObject:
   m_ObjectHideFlags: 0
