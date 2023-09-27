@@ -9,6 +9,8 @@ public class PlayMenuManager : BaseMenuManager
     public static PlayMenuManager Instance { get; private set; }
 
     [SerializeField] private Button playButton;
+    [SerializeField] private Button discardButton;
+
     private void Awake()
     {
         if (Instance == null)
@@ -28,6 +30,13 @@ public class PlayMenuManager : BaseMenuManager
         playButton.onClick.AddListener(() =>
         {
             card.Play();
+        });
+
+        discardButton.onClick.RemoveAllListeners();
+        discardButton.onClick.AddListener(() =>
+        {
+            Deck.Instance.DiscardCard(card);
+            HideMenu();
         });
         base.SetUpMenuButtons(card);
     }

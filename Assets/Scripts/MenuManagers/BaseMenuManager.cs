@@ -12,11 +12,6 @@ public class BaseMenuManager : MonoBehaviour
     [SerializeField] protected TMP_Text cardDescription;
     [SerializeField] protected Button closeButton;
 
-    public void Awake()
-    {
-        HideMenu();
-    }
-
     /// <summary>
     /// Sets up menu with information of the card that got clicked
     /// </summary>

@@ -1106,6 +1106,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: Play Card Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 3223818275414971869, guid: d50a3d28c767292459ca2c18a3eeb4fa,
+        type: 3}
+      propertyPath: m_Spacing
+      value: -5.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027659227736823740, guid: d50a3d28c767292459ca2c18a3eeb4fa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027659227736823740, guid: d50a3d28c767292459ca2c18a3eeb4fa,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027659227736823740, guid: d50a3d28c767292459ca2c18a3eeb4fa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027659227736823740, guid: d50a3d28c767292459ca2c18a3eeb4fa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993334546961537590, guid: d50a3d28c767292459ca2c18a3eeb4fa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993334546961537590, guid: d50a3d28c767292459ca2c18a3eeb4fa,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993334546961537590, guid: d50a3d28c767292459ca2c18a3eeb4fa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993334546961537590, guid: d50a3d28c767292459ca2c18a3eeb4fa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1119,6 +1164,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2062685136}
     m_Modifications:
+    - target: {fileID: 60410960327156126, guid: 187ccaee307472d4182a4dc9b849a7c3,
+        type: 3}
+      propertyPath: m_Name
+      value: Close Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392399586520473876, guid: 187ccaee307472d4182a4dc9b849a7c3,
+        type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 5755117827109950124}
     - target: {fileID: 8015995841325330773, guid: 187ccaee307472d4182a4dc9b849a7c3,
         type: 3}
       propertyPath: m_Name
@@ -1229,6 +1284,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 187ccaee307472d4182a4dc9b849a7c3, type: 3}
+--- !u!114 &5755117827109950124 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7902855447529172720, guid: 187ccaee307472d4182a4dc9b849a7c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5755117827109950123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8755803094201110965
 PrefabInstance:
   m_ObjectHideFlags: 0
