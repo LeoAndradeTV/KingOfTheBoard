@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BaseCard : MonoBehaviour, IPlayable
 {
@@ -11,10 +12,15 @@ public class BaseCard : MonoBehaviour, IPlayable
     [SerializeField] private TMP_Text cardDescription;
     [SerializeField] private TMP_Text cardPrice;
 
-    private CardType cardType;
-
+    protected CardType cardType;
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        cardType = cardScriptableObject.cardType;
+    }
+
     void OnEnable()
     {
         InitializeCard();
@@ -25,7 +31,6 @@ public class BaseCard : MonoBehaviour, IPlayable
         cardName.text = cardScriptableObject.cardName;
         cardDescription.text = cardScriptableObject.cardDescription;
         cardPrice.text = $"Price: {cardScriptableObject.cardPrice}";
-        cardType = cardScriptableObject.cardType;
         if (cardType == CardType.Bought)
         {
             cardPrice.gameObject.SetActive(false);
@@ -39,7 +44,10 @@ public class BaseCard : MonoBehaviour, IPlayable
 
     public void OnClick()
     {
-        OpenMenu();
+        if (MouseClick.CanSelect)
+        {
+            OpenMenu();
+        }
     }
 
     public void OpenMenu()
@@ -47,7 +55,7 @@ public class BaseCard : MonoBehaviour, IPlayable
         switch (cardType)
         {
             case CardType.Bought:
-                // TODO: Show play menu
+                PlayMenuManager.Instance.ShowMenu(this);
                 break;
             case CardType.Available:
                 PurchaseMenuManager.Instance.ShowMenu(this);
@@ -55,19 +63,20 @@ public class BaseCard : MonoBehaviour, IPlayable
         }
     }
 
-    public void OnClose()
-    {
-        
-    }
+    public void OnClose() { }
 
     public virtual void Play()
     {
         Debug.Log("Play");
+        Deck.Instance.DiscardCard(this);
+        PlayMenuManager.Instance.HideMenu();
     }
 
     public virtual void PurchaseCard()
     {
-        
+        cardType = CardType.Bought;
+        Deck.Instance.DiscardCard(this);
+        PurchaseMenuManager.Instance.HideMenu();
     }
 
     public CardSO GetScriptableObject()

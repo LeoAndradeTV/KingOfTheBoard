@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class CardBankManager : MonoBehaviour
 {
@@ -51,7 +52,9 @@ public class CardBankManager : MonoBehaviour
         {
             for (var i = 0; i < pair.Value; i++)
             {
-                deckOfCards.Add(pair.Key);
+                BaseCard card = Instantiate(pair.Key, transform);
+                card.gameObject.SetActive(false);
+                deckOfCards.Add(card);
             }
         }
     }
@@ -64,7 +67,7 @@ public class CardBankManager : MonoBehaviour
         if (deckOfCards.Count == 0)
             return;
 
-        List<int> emptyLocationsInBank = GetEmptyCardBankLocations();
+        List<Transform> emptyLocationsInBank = GetEmptyCardBankLocations();
 
         foreach (var location in emptyLocationsInBank)
         {
@@ -79,14 +82,14 @@ public class CardBankManager : MonoBehaviour
     /// Gets Empty locations in card bank
     /// </summary>
     /// <returns></returns>
-    private List<int> GetEmptyCardBankLocations()
+    private List<Transform> GetEmptyCardBankLocations()
     {
-        List<int> emptyLocations = new List<int>();
+        List<Transform> emptyLocations = new List<Transform>();
         for (int i = 0; i < cardBankLocations.Length; i++)
         {
             if (cardBankLocations[i].childCount == 0)
             {
-                emptyLocations.Add(i);
+                emptyLocations.Add(cardBankLocations[i]);
             }
         }
         return emptyLocations;
@@ -97,14 +100,11 @@ public class CardBankManager : MonoBehaviour
     /// </summary>
     /// <param name="card">Card to place.</param>
     /// <param name="locationIndex">Location to place card in.</param>
-    private void PlaceCardInBank(BaseCard card, int locationIndex)
+    private void PlaceCardInBank(BaseCard card, Transform location)
     {
-        Instantiate(card, cardBankLocations[locationIndex]);
-    }
-
-    public void RemoveCardFromBank(BaseCard card)
-    {
-        DestroyImmediate(card.gameObject);
-        UpdateCardBank();
+        card.transform.SetParent(location);
+        card.transform.position = location.position;
+        card.transform.localScale = Vector3.one;
+        card.gameObject.SetActive(true);
     }
 }

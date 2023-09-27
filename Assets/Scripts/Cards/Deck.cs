@@ -53,8 +53,10 @@ public class Deck : MonoBehaviour
         foreach (var pair in initialCards)
         {
             for (var i = 0; i < pair.Value; i++)
-            {
-                deckOfCards.Add(pair.Key);
+            { 
+                BaseCard card = Instantiate(pair.Key, transform);
+                card.gameObject.SetActive(false);
+                deckOfCards.Add(card);
             }
         }
     }
@@ -64,16 +66,18 @@ public class Deck : MonoBehaviour
     /// </summary>
     public void DrawCards()
     {
-        if (deckOfCards.Count == 0)
-            return;
-
-        List<int> emptyLocationsInHand = PlayerHand.Instance.GetEmptyLocations();
+        List<Transform> emptyLocationsInHand = PlayerHand.Instance.GetEmptyLocations();
 
         foreach (var location in emptyLocationsInHand)
         {
+            if (deckOfCards.Count == 0)
+                break;
+
             BaseCard card = deckOfCards[Random.Range(0, deckOfCards.Count)];
-            PlayerHand.Instance.PlaceCardInHand(card, location);
-            discardedCards.Add(card);
+            card.transform.SetParent(location);
+            card.transform.position = location.position;
+            card.transform.localScale = Vector3.one;
+            card.gameObject.SetActive(true);
             deckOfCards.Remove(card);
         }
 
@@ -103,8 +107,10 @@ public class Deck : MonoBehaviour
         shuffleButton.gameObject.SetActive(deckOfCards.Count == 0);
     }
 
-    public void AddCardToDeck(BaseCard card)
+    public void DiscardCard(BaseCard card)
     {
-        deckOfCards.Add(card);
+        card.transform.SetParent(transform);
+        discardedCards.Add(card);
+        card.gameObject.SetActive(false);
     }
 }

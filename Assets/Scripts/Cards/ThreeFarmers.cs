@@ -7,13 +7,12 @@ public class ThreeFarmers : BaseCard
     public override void Play()
     {
         Debug.Log("Played Three Farmers");
+        base.Play();
     }
 
     public override void PurchaseCard()
     {
         Debug.Log("Purchased Three Farmers");
-        Deck.Instance.AddCardToDeck(this);
-        PurchaseMenuManager.Instance.HideMenu();
-        CardBankManager.Instance.RemoveCardFromBank(this);
+        base.PurchaseCard();
     }
 }

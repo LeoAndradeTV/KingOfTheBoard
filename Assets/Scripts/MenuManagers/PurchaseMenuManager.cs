@@ -4,17 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PurchaseMenuManager : MonoBehaviour
+public class PurchaseMenuManager : BaseMenuManager
 {
     public static PurchaseMenuManager Instance { get; private set; }
 
-    private BaseCard currentCard;
-
-    [SerializeField] private TMP_Text cardName;
-    [SerializeField] private TMP_Text cardDescription;
     [SerializeField] private TMP_Text cardPrice;
     [SerializeField] private Button purchaseButton;
-    [SerializeField] private Button closeButton;
 
     private void Awake()
     {
@@ -26,26 +21,24 @@ public class PurchaseMenuManager : MonoBehaviour
         HideMenu();
     }
 
-    public void SetUpMenu(BaseCard card)
+    public override void SetUpMenu(BaseCard card)
     {
-        currentCard = card;
-        CardSO so = currentCard.GetScriptableObject();
-        cardName.text = so.name;
-        cardDescription.text = so.cardDescription;
-        cardPrice.text = $"Price: {so.cardPrice}";
-
-        purchaseButton.onClick.AddListener(() => card.PurchaseCard());
-        closeButton.onClick.AddListener(() => HideMenu());
+        cardPrice.text = $"Price: {card.GetScriptableObject().cardPrice}";
+        base.SetUpMenu(card);   
     }
 
-    public void ShowMenu(BaseCard card)
+    /// <summary>
+    /// Resets the purchase menu buttons every time the menu pops up
+    /// </summary>
+    /// <param name="card">Card to be set up</param>
+    public override void SetUpMenuButtons(BaseCard card)
     {
-        SetUpMenu(card);
-        gameObject.SetActive(true);
-    }
-
-    public void HideMenu()
-    {
-        gameObject.SetActive(false);
+        purchaseButton.onClick.RemoveAllListeners();
+        purchaseButton.onClick.AddListener(() =>
+        {
+            card.PurchaseCard();
+            CardBankManager.Instance.UpdateCardBank();
+        });
+        base.SetUpMenuButtons(card);
     }
 }

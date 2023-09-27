@@ -8,6 +8,7 @@ public class PlayerHand : MonoBehaviour
     public static PlayerHand Instance;
 
     [SerializeField] private List<Transform> cardLocations = new List<Transform>();
+    [SerializeField] private List<BaseCard> cardsInHand = new List<BaseCard>();
 
     private void Awake()
     {
@@ -21,14 +22,14 @@ public class PlayerHand : MonoBehaviour
     /// Returns a list of the empty locations in the hand
     /// </summary>
     /// <returns></returns>
-    public List<int> GetEmptyLocations()
+    public List<Transform> GetEmptyLocations()
     {
-        List<int> emptyLocations = new List<int>();
+        List<Transform> emptyLocations = new List<Transform>();
         for(int i = 0; i < cardLocations.Count; i++)
         {
             if (cardLocations[i].childCount == 0)
             {
-                emptyLocations.Add(i);
+                emptyLocations.Add(cardLocations[i]);
             }
         }
         return emptyLocations;
@@ -42,5 +43,6 @@ public class PlayerHand : MonoBehaviour
     public void PlaceCardInHand(BaseCard card, int locationIndex)
     {
         Instantiate(card, cardLocations[locationIndex]);
+        cardsInHand.Add(card);
     }
 }
