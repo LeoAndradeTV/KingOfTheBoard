@@ -112,5 +112,6 @@ public class Deck : MonoBehaviour
         card.transform.SetParent(transform);
         discardedCards.Add(card);
         card.gameObject.SetActive(false);
+        BaseMenuManager.Instance.HideMenus();
     }
 }

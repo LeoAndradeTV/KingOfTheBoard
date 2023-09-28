@@ -205,7 +205,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2637384770106826875}
-  - component: {fileID: 4881701794340656763}
   m_Layer: 5
   m_Name: Play Card Menu
   m_TagString: Untagged
@@ -237,22 +236,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4881701794340656763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3057917182530792293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71579fca9ac17cb4bb65add186d35893, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardName: {fileID: 3025322904600239031}
-  cardDescription: {fileID: 2450258717457870907}
-  closeButton: {fileID: 3035657379356324816}
-  playButton: {fileID: 5197953258063972774}
 --- !u!1 &4362866740341110043
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,7 +902,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

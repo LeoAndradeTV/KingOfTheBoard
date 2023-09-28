@@ -4,41 +4,34 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PurchaseMenuManager : BaseMenuManager
+public class PurchaseMenuManager : IMenuStrategy
 {
-    public static PurchaseMenuManager Instance { get; private set; }
+    private TMP_Text cardPrice;
+    private Button purchaseButton;
 
-    [SerializeField] private TMP_Text cardPrice;
-    [SerializeField] private Button purchaseButton;
-
-    private void Awake()
+    public PurchaseMenuManager (BaseMenuManager manager)
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
-        HideMenu();
+        cardPrice = manager.cardPrice;
+        purchaseButton = manager.purchaseButton;
     }
 
-    public override void SetUpMenu(BaseCard card)
+    public void SetUpMenu(BaseCard card)
     {
         cardPrice.text = $"Price: {card.GetScriptableObject().cardPrice}";
-        base.SetUpMenu(card);   
-    }
 
-    /// <summary>
-    /// Resets the purchase menu buttons every time the menu pops up
-    /// </summary>
-    /// <param name="card">Card to be set up</param>
-    public override void SetUpMenuButtons(BaseCard card)
-    {
         purchaseButton.onClick.RemoveAllListeners();
         purchaseButton.onClick.AddListener(() =>
         {
             card.PurchaseCard();
             CardBankManager.Instance.UpdateCardBank();
         });
-        base.SetUpMenuButtons(card);
+
+        ShowSpecificInfo();
+    }
+
+    public void ShowSpecificInfo()
+    {
+        cardPrice.gameObject.SetActive(true);
+        purchaseButton.gameObject.SetActive(true);
     }
 }

@@ -6,4 +6,5 @@ using UnityEngine;
 public static class Actions
 {
     public static Action OnCardBought;
+    public static Action<BaseCard> OnCardClicked;
 }

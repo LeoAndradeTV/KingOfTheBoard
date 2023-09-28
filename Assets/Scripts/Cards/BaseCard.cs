@@ -46,20 +46,7 @@ public class BaseCard : MonoBehaviour, IPlayable
     {
         if (MouseClick.CanSelect)
         {
-            OpenMenu();
-        }
-    }
-
-    public void OpenMenu()
-    {
-        switch (cardType)
-        {
-            case CardType.Bought:
-                PlayMenuManager.Instance.ShowMenu(this);
-                break;
-            case CardType.Available:
-                PurchaseMenuManager.Instance.ShowMenu(this);
-                break;
+            Actions.OnCardClicked?.Invoke(this);
         }
     }
 
@@ -69,18 +56,21 @@ public class BaseCard : MonoBehaviour, IPlayable
     {
         Debug.Log("Play");
         Deck.Instance.DiscardCard(this);
-        PlayMenuManager.Instance.HideMenu();
     }
 
     public virtual void PurchaseCard()
     {
         cardType = CardType.Bought;
         Deck.Instance.DiscardCard(this);
-        PurchaseMenuManager.Instance.HideMenu();
     }
 
     public CardSO GetScriptableObject()
     {
         return cardScriptableObject;
+    }
+
+    public CardType GetCardType()
+    {
+        return cardType;
     }
 }

@@ -4,27 +4,21 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayMenuManager : BaseMenuManager
+public class PlayMenuManager : IMenuStrategy
 {
-    public static PlayMenuManager Instance { get; private set; }
+    private Button playButton;
+    private Button discardButton;
 
-    [SerializeField] private Button playButton;
-    [SerializeField] private Button discardButton;
-
-    private void Awake()
+    public PlayMenuManager(BaseMenuManager manager) 
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
-        HideMenu();
+        playButton = manager.playButton;
+        discardButton = manager.discardButton;
     }
     /// <summary>
     /// Resets the purchase menu buttons every time the menu pops up
     /// </summary>
     /// <param name="card">Card to be set up</param>
-    public override void SetUpMenuButtons(BaseCard card)
+    public void SetUpMenu(BaseCard card)
     {
         playButton.onClick.RemoveAllListeners();
         playButton.onClick.AddListener(() =>
@@ -36,8 +30,13 @@ public class PlayMenuManager : BaseMenuManager
         discardButton.onClick.AddListener(() =>
         {
             Deck.Instance.DiscardCard(card);
-            HideMenu();
         });
-        base.SetUpMenuButtons(card);
+        ShowSpecificInfo();
+    }
+
+    public void ShowSpecificInfo()
+    {
+        playButton.gameObject.SetActive(true);
+        discardButton.gameObject.SetActive(true);
     }
 }
