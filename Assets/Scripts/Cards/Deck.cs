@@ -5,25 +5,27 @@ using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
-    public static Deck Instance { get; private set; }
-
-    [SerializeField] private List<BaseCard> possibleCards = new List<BaseCard>();
-    [SerializeField] private List<int> numberOfCards = new List<int>();
+    [SerializeField] private BaseCard[] possibleCards;
+    [SerializeField] private int[] numberOfCards;
 
     [SerializeField] private Button drawButton;
     [SerializeField] private Button shuffleButton;
+
+    [SerializeField] private PlayerHand hand;
 
     private List<BaseCard> deckOfCards = new List<BaseCard>();
     private List<BaseCard> discardedCards = new List<BaseCard>();
 
     Dictionary<BaseCard, int> initialCards = new Dictionary<BaseCard, int>();
 
-    private void Awake()
-    { 
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+    private void OnEnable()
+    {
+        Actions.OnDiscardCard += DiscardCard;
+    }
+
+    private void OnDisable()
+    {
+        Actions.OnDiscardCard -= DiscardCard;
     }
 
     // Start is called before the first frame update
@@ -31,7 +33,7 @@ public class Deck : MonoBehaviour
     {
         InitializeDictionary();
         InitializeDeck();
-        SetDrawAndShuffleButtons();
+        ToggleDrawAndShuffleButtons();
     }
 
     /// <summary>
@@ -39,7 +41,7 @@ public class Deck : MonoBehaviour
     /// </summary>
     private void InitializeDictionary()
     {
-        for (int i = 0; i < possibleCards.Count; i++)
+        for (int i = 0; i < possibleCards.Length; i++)
         {
             initialCards[possibleCards[i]] = numberOfCards[i];
         }
@@ -66,7 +68,7 @@ public class Deck : MonoBehaviour
     /// </summary>
     public void DrawCards()
     {
-        List<Transform> emptyLocationsInHand = PlayerHand.Instance.GetEmptyLocations();
+        List<Transform> emptyLocationsInHand = hand.GetEmptyLocations();
 
         foreach (var location in emptyLocationsInHand)
         {
@@ -74,14 +76,11 @@ public class Deck : MonoBehaviour
                 break;
 
             BaseCard card = deckOfCards[Random.Range(0, deckOfCards.Count)];
-            card.transform.SetParent(location);
-            card.transform.position = location.position;
-            card.transform.localScale = Vector3.one;
-            card.gameObject.SetActive(true);
+            hand.PlaceCardInHand(card, location);
             deckOfCards.Remove(card);
         }
 
-        SetDrawAndShuffleButtons();
+        ToggleDrawAndShuffleButtons();
     }
 
     /// <summary>
@@ -98,20 +97,27 @@ public class Deck : MonoBehaviour
         }
         discardedCards.Clear();
 
-        SetDrawAndShuffleButtons();
+        ToggleDrawAndShuffleButtons();
     }
 
-    private void SetDrawAndShuffleButtons()
+    /// <summary>
+    /// Activates and deactivates draw and shuffle buttons based on whether player can perform those actions
+    /// </summary>
+    private void ToggleDrawAndShuffleButtons()
     {
         drawButton.gameObject.SetActive(deckOfCards.Count > 0);
         shuffleButton.gameObject.SetActive(deckOfCards.Count == 0);
     }
 
+    /// <summary>
+    /// Sends cards to discard pile
+    /// </summary>
+    /// <param name="card"></param>
     public void DiscardCard(BaseCard card)
     {
         card.transform.SetParent(transform);
         discardedCards.Add(card);
         card.gameObject.SetActive(false);
-        BaseMenuManager.Instance.HideMenus();
+        Actions.OnCardDiscarded?.Invoke();
     }
 }

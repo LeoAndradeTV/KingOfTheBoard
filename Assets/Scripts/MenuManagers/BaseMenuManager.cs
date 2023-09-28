@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class BaseMenuManager : MonoBehaviour
 {
-    public static BaseMenuManager Instance { get; private set; }
-
     protected BaseCard currentCard;
 
     [Header("Menus")]
@@ -30,23 +28,21 @@ public class BaseMenuManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
-        SetUpCloseButton();
         HideMenus();
+        SetUpCloseButton();
     }
+
 
     private void OnEnable()
     {
         Actions.OnCardClicked += ShowMenu;
+        Actions.OnCardDiscarded += HideMenus;
     }
 
     private void OnDisable()
     {
         Actions.OnCardClicked -= ShowMenu;
+        Actions.OnCardDiscarded -= HideMenus;
     }
 
     /// <summary>
@@ -83,7 +79,7 @@ public class BaseMenuManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Resets the close menu buttons every time the menu pops up
+    /// Sets up the close menu button
     /// </summary>
     /// <param name="card">Card to be set up</param>
     public void SetUpCloseButton()
@@ -92,6 +88,10 @@ public class BaseMenuManager : MonoBehaviour
         closeButton.onClick.AddListener(() => HideMenus());
     }
 
+    /// <summary>
+    /// Sets Up correct menu based on card and shows it
+    /// </summary>
+    /// <param name="card">Card info to show</param>
     public void ShowMenu(BaseCard card)
     {
         SetUpMenu(card);
@@ -99,6 +99,9 @@ public class BaseMenuManager : MonoBehaviour
         MouseClick.CanSelect = false;
     }
 
+    /// <summary>
+    /// Deactivates all menus
+    /// </summary>
     public void HideMenus()
     {
         HideSpecificInfos();
@@ -106,6 +109,9 @@ public class BaseMenuManager : MonoBehaviour
         MouseClick.CanSelect = true;
     }
 
+    /// <summary>
+    /// Deactivates components specific to one menu
+    /// </summary>
     private void HideSpecificInfos()
     {
         playButton.gameObject.SetActive(false);

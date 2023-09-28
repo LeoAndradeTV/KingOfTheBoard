@@ -15,6 +15,10 @@ public class PurchaseMenuManager : IMenuStrategy
         purchaseButton = manager.purchaseButton;
     }
 
+    /// <summary>
+    /// Sets up menu based on the card.
+    /// </summary>
+    /// <param name="card">Card from which information is drawn.</param>
     public void SetUpMenu(BaseCard card)
     {
         cardPrice.text = $"Price: {card.GetScriptableObject().cardPrice}";
@@ -23,12 +27,15 @@ public class PurchaseMenuManager : IMenuStrategy
         purchaseButton.onClick.AddListener(() =>
         {
             card.PurchaseCard();
-            CardBankManager.Instance.UpdateCardBank();
+            Actions.OnCardBought?.Invoke();
         });
 
         ShowSpecificInfo();
     }
 
+    /// <summary>
+    /// Shows information specific to this type of Menu
+    /// </summary>
     public void ShowSpecificInfo()
     {
         cardPrice.gameObject.SetActive(true);

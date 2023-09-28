@@ -14,6 +14,7 @@ public class PlayMenuManager : IMenuStrategy
         playButton = manager.playButton;
         discardButton = manager.discardButton;
     }
+
     /// <summary>
     /// Resets the purchase menu buttons every time the menu pops up
     /// </summary>
@@ -29,11 +30,14 @@ public class PlayMenuManager : IMenuStrategy
         discardButton.onClick.RemoveAllListeners();
         discardButton.onClick.AddListener(() =>
         {
-            Deck.Instance.DiscardCard(card);
+            Actions.OnDiscardCard?.Invoke(card);
         });
         ShowSpecificInfo();
     }
 
+    /// <summary>
+    /// Shows information specific to this type of Menu
+    /// </summary>
     public void ShowSpecificInfo()
     {
         playButton.gameObject.SetActive(true);
