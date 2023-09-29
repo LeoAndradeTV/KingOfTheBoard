@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TwoFarmers : BaseCard
 {
+    private int harvests = 2;
+
     public override void Play()
     {
-        base.Play();
-        Debug.Log("Played two farmers");
-
+        Actions.OnFarmerCardPlayed?.Invoke(harvests);
     }
 }

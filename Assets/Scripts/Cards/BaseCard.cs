@@ -58,11 +58,7 @@ public class BaseCard : MonoBehaviour
     /// <summary>
     /// Applies effect of played card. Should be overriden based on type of card.
     /// </summary>
-    public virtual void Play()
-    {
-        Debug.Log("Play");
-        Actions.OnDiscardCard?.Invoke(this);
-    }
+    public virtual void Play() { }
 
     /// <summary>
     /// Sends card to discard pile

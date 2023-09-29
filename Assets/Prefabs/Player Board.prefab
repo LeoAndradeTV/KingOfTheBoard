@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 829472384659463505}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.275, y: 0.5, z: -0.2}
+  m_LocalPosition: {x: -0.275, y: 0.5, z: -0.15}
   m_LocalScale: {x: 0.15, y: 0.16, z: 0.38}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -359,7 +359,7 @@ Transform:
   m_GameObject: {fileID: 2573659597734825040}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 0.5, z: -0.2}
+  m_LocalPosition: {x: -0.4, y: 0.5, z: -0.15}
   m_LocalScale: {x: 0.15, y: 0.16, z: 0.38}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -639,7 +639,7 @@ Transform:
   m_GameObject: {fileID: 5755131547181643201}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.025, y: 0.5, z: -0.2}
+  m_LocalPosition: {x: -0.025, y: 0.5, z: -0.15}
   m_LocalScale: {x: 0.15, y: 0.16, z: 0.38}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -679,7 +679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 0.120000005}
+  m_AnchoredPosition: {x: -3, y: 0.15}
   m_SizeDelta: {x: 8.766, y: 0.084}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6723931988542854388
@@ -732,7 +732,6 @@ MonoBehaviour:
   - {fileID: 1082323719496051922}
   - {fileID: 6285104173985887995}
   - {fileID: 3407315901232147454}
-  cardsInHand: []
 --- !u!1 &7047520781281181362
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +757,7 @@ Transform:
   m_GameObject: {fileID: 7047520781281181362}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0.5, z: -0.2}
+  m_LocalPosition: {x: -0.15, y: 0.5, z: -0.15}
   m_LocalScale: {x: 0.15, y: 0.16, z: 0.38}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1453,7 +1452,7 @@ Transform:
   m_GameObject: {fileID: 9155510594483897277}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.5, z: -0.2}
+  m_LocalPosition: {x: 0.1, y: 0.5, z: -0.15}
   m_LocalScale: {x: 0.15, y: 0.16, z: 0.38}
   m_ConstrainProportionsScale: 0
   m_Children: []
