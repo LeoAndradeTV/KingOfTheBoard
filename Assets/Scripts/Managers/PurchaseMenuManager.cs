@@ -24,11 +24,22 @@ public class PurchaseMenuManager : IMenuStrategy
         cardPrice.text = $"Price: {card.GetScriptableObject().cardPrice}";
 
         purchaseButton.onClick.RemoveAllListeners();
-        purchaseButton.onClick.AddListener(() =>
+
+        if (PlayerStats.Instance.GoldAmount < card.GetScriptableObject().cardPrice)
         {
-            card.PurchaseCard();
-            Actions.OnCardBought?.Invoke();
-        });
+            SetUpBuyButton("Not enough gold", false, Color.red);
+        } 
+        else
+        {
+            SetUpBuyButton("Buy", true, Color.white);
+
+            purchaseButton.onClick.AddListener(() =>
+            {
+                card.PurchaseCard();
+                Actions.OnCardBought?.Invoke();
+            });
+
+        }
 
         ShowSpecificInfo();
     }
@@ -40,5 +51,12 @@ public class PurchaseMenuManager : IMenuStrategy
     {
         cardPrice.gameObject.SetActive(true);
         purchaseButton.gameObject.SetActive(true);
+    }
+
+    private void SetUpBuyButton(string text, bool interactable, Color color)
+    {
+        purchaseButton.GetComponentInChildren<TMP_Text>().text = text;
+        purchaseButton.interactable = interactable;
+        purchaseButton.GetComponent<Image>().color = color;
     }
 }

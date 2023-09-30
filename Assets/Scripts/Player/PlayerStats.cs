@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private TMP_Text goldAmountText;
 
-    private int goldAmount = 0;
+    private int goldAmount = 100;
     public int GoldAmount
     {
         get { return goldAmount; }
