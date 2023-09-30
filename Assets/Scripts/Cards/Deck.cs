@@ -20,11 +20,13 @@ public class Deck : MonoBehaviour
     private void OnEnable()
     {
         Actions.OnDiscardCard += DiscardCard;
+        Actions.ShouldDrawOneCard += DrawOneCard;
     }
 
     private void OnDisable()
     {
         Actions.OnDiscardCard -= DiscardCard;
+        Actions.ShouldDrawOneCard -= DrawOneCard;
     }
 
     // Start is called before the first frame update
@@ -66,7 +68,7 @@ public class Deck : MonoBehaviour
     /// <summary>
     /// Draws cards based on the amount of empty locations on the board
     /// </summary>
-    public void DrawCards()
+    public void DrawFullHand()
     {
         List<Transform> emptyLocationsInHand = hand.GetEmptyLocations();
 
@@ -74,13 +76,31 @@ public class Deck : MonoBehaviour
         {
             if (deckOfCards.Count == 0)
                 break;
-
-            BaseCard card = deckOfCards[Random.Range(0, deckOfCards.Count)];
-            hand.PlaceCardInHand(card, location);
-            deckOfCards.Remove(card);
+            
+            DrawRandomCard(location);
         }
 
         ToggleDrawAndShuffleButtons();
+    }
+
+    /// <summary>
+    /// Draws and places one single card
+    /// </summary>
+    private void DrawOneCard()
+    {
+        Transform location = hand.GetEmptyLocations()[0];
+        DrawRandomCard(location);
+    }
+
+    /// <summary>
+    /// Draws a random card and places it in a given location in the player's hand
+    /// </summary>
+    /// <param name="location">Location in player's hand</param>
+    private void DrawRandomCard(Transform location)
+    {
+        BaseCard card = deckOfCards[Random.Range(0, deckOfCards.Count)];
+        hand.PlaceCardInHand(card, location);
+        deckOfCards.Remove(card);
     }
 
     /// <summary>
@@ -117,7 +137,20 @@ public class Deck : MonoBehaviour
     {
         card.transform.SetParent(transform);
         discardedCards.Add(card);
+        TryDrawExtraCard(card);
         card.gameObject.SetActive(false);
         Actions.OnCardDiscarded?.Invoke();
+    }
+
+    /// <summary>
+    /// Tries to draw an extra card if the card played allows for that
+    /// </summary>
+    /// <param name="card">Card that was discarded</param>
+    private void TryDrawExtraCard(BaseCard card)
+    {
+        if (card.TryGetComponent(out ICanDrawCard canDraw))
+        {
+            canDraw.Draw();
+        }
     }
 }

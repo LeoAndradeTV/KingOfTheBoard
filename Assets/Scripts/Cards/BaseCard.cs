@@ -42,7 +42,7 @@ public class BaseCard : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         OnClick();
     }

@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2294331695403698790, guid: 82a35315cf2b71b42a35039de853e8fc,
         type: 3}
       propertyPath: m_Name
-      value: Three Farmers
+      value: Rock Pickaxe Card
       objectReference: {fileID: 0}
     - target: {fileID: 6317226697876455783, guid: 82a35315cf2b71b42a35039de853e8fc,
         type: 3}
@@ -70,7 +70,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2294331695403698790, guid: 82a35315cf2b71b42a35039de853e8fc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8519390134833262868}
+      addedObject: {fileID: 3813726056018931224}
   m_SourcePrefab: {fileID: 100100000, guid: 82a35315cf2b71b42a35039de853e8fc, type: 3}
 --- !u!114 &8436199348788440912 stripped
 MonoBehaviour:
@@ -90,7 +90,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7077705040766292756}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8519390134833262868
+--- !u!114 &3813726056018931224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,10 +99,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9074214185099385202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86dbdf2427f145e459f3ecd28531cfe6, type: 3}
+  m_Script: {fileID: 11500000, guid: f77f09074d23f2c4594c95eca15a5fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardScriptableObject: {fileID: 11400000, guid: 6c11c4a0db4b5e94aad9ef1c87344bff,
+  cardScriptableObject: {fileID: 11400000, guid: 7109578f2269020478563a3b1ca4f6e2,
     type: 2}
   cardName: {fileID: 9102997648751537327}
   cardDescription: {fileID: 9082717758967660569}

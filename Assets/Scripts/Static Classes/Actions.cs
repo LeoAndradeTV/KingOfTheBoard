@@ -5,11 +5,13 @@ using UnityEngine;
 
 public static class Actions
 {
+    public static Action ShouldDrawOneCard;
     public static Action OnCardBought;
     public static Action<BaseCard> OnCardClicked;
     public static Action OnCardDiscarded;
     public static Action<BaseCard> OnDiscardCard;
     public static Action<MaterialType, int> OnMaterialAdded;
     public static Action<MaterialType, int> OnMaterialRemoved;
-    public static Action<int> OnFarmerCardPlayed; //int = amount of harvests
+    public static Action<int, int> OnHarvestCardPlayed; //int = amount of harvests, int = amount of material per harvest
+    public static Action OnHarvestUsed;
 }

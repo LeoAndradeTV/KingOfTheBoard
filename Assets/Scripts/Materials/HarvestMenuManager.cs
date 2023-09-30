@@ -15,6 +15,7 @@ public class HarvestMenuManager : MonoBehaviour
     [SerializeField] private TMP_Text harvestsRemainingText;
     
     private int harvestsRemaining;
+    private int materialsPerHarvest;
 
     public int HarvestsRemaining
     {
@@ -29,35 +30,36 @@ public class HarvestMenuManager : MonoBehaviour
     private void Awake()
     {
         Actions.OnCardClicked += SetActiveCard;
-        Actions.OnFarmerCardPlayed += SetHarvests;
+        Actions.OnHarvestCardPlayed += SetHarvests;
+        Actions.OnHarvestUsed += RemoveOneHarvest;
         HideMenu();
     }
 
     private void OnDestroy()
     {
         Actions.OnCardClicked -= SetActiveCard;
-        Actions.OnFarmerCardPlayed -= SetHarvests;
+        Actions.OnHarvestCardPlayed -= SetHarvests;
     }
 
     private void OnEnable()
     {
         woodButton.onClick.AddListener(() =>
         {
-            SetButtonBehavior(MaterialType.Wood, 1);
+            SetButtonBehavior(MaterialType.Wood, materialsPerHarvest);
         });
         rockButton.onClick.AddListener(() =>
         {
-            SetButtonBehavior(MaterialType.Rock, 1);
+            SetButtonBehavior(MaterialType.Rock, materialsPerHarvest);
 
         });
         stringButton.onClick.AddListener(() =>
         {
-            SetButtonBehavior(MaterialType.String, 1);
+            SetButtonBehavior(MaterialType.String, materialsPerHarvest);
 
         });
         ironButton.onClick.AddListener(() =>
         {
-            SetButtonBehavior(MaterialType.Iron, 1);
+            SetButtonBehavior(MaterialType.Iron, materialsPerHarvest);
         });
     }
 
@@ -80,17 +82,19 @@ public class HarvestMenuManager : MonoBehaviour
         activeCard = card;
     }
 
-    public void SetHarvests(int amount)
+    public void SetHarvests(int amount, int materialsPerHarvest)
     {
         HarvestsRemaining = amount;
+        this.materialsPerHarvest = materialsPerHarvest;
         ShowMenu();
     }
     private void RemoveOneHarvest()
     {
         HarvestsRemaining--;
-        if (HarvestsRemaining == 0)
+        if (HarvestsRemaining <= 0)
         {
             Actions.OnDiscardCard?.Invoke(activeCard);
+            HarvestsRemaining = 0;
             HideMenu();
         }
     }

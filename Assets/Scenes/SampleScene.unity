@@ -2136,9 +2136,14 @@ MonoBehaviour:
   - {fileID: 647399945}
   possibleCards:
   - {fileID: 8519390134833262868, guid: c4e4186188a837e49b484bf2b423120d, type: 3}
-  - {fileID: 7546136744214866030, guid: c15d6ce08cfea174aabda4657a9b87f4, type: 3}
+  - {fileID: 3829161762440599274, guid: 661d2f85f68a0bf47b149b1cd12794c3, type: 3}
+  - {fileID: 8490898310969335153, guid: 7eeb33ad8e4862c43ad56823e79c6cc5, type: 3}
+  - {fileID: 4844256452753240234, guid: efaf23853f868c94a90fd803fd96597f, type: 3}
+  - {fileID: 5988712293971903871, guid: c44bb216d1469944582bed58e33cc8e7, type: 3}
+  - {fileID: 3577462709684035935, guid: 8dfc3069f9b2700488d7c57adaec0893, type: 3}
+  - {fileID: 3813726056018931224, guid: a0b269aa37960e042b73ec7752519a29, type: 3}
+  - {fileID: 8378414392484342797, guid: c93c252ebc8314141a7542206921818a, type: 3}
   - {fileID: 1950078612798795682, guid: 6a6698a3c794af24386ac441f4ba4c4e, type: 3}
-  numberOfCards: 040000000400000004000000
 --- !u!1 &1434146550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3721,6 +3726,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923235945825477558, guid: de12dbe2f5db3934b96377b901f63574,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DrawFullHand
       objectReference: {fileID: 0}
     - target: {fileID: 9148629740963873301, guid: de12dbe2f5db3934b96377b901f63574,
         type: 3}
