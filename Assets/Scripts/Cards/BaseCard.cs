@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BaseCard : MonoBehaviour, IPlayable
+public class BaseCard : MonoBehaviour
 {
     [SerializeField] private CardSO cardScriptableObject;
 
@@ -26,18 +26,23 @@ public class BaseCard : MonoBehaviour, IPlayable
         InitializeCard();
     }
 
+    /// <summary>
+    /// Sets up card information when card is placed anywhere on the table
+    /// </summary>
     private void InitializeCard()
     {
         cardName.text = cardScriptableObject.cardName;
         cardDescription.text = cardScriptableObject.cardDescription;
         cardPrice.text = $"Price: {cardScriptableObject.cardPrice}";
+
+        // Only show card price if it hasn't been bought yet
         if (cardType == CardType.Bought)
         {
             cardPrice.gameObject.SetActive(false);
         }
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         OnClick();
     }
@@ -46,41 +51,43 @@ public class BaseCard : MonoBehaviour, IPlayable
     {
         if (MouseClick.CanSelect)
         {
-            OpenMenu();
+            Actions.OnCardClicked?.Invoke(this);
         }
     }
 
-    public void OpenMenu()
-    {
-        switch (cardType)
-        {
-            case CardType.Bought:
-                PlayMenuManager.Instance.ShowMenu(this);
-                break;
-            case CardType.Available:
-                PurchaseMenuManager.Instance.ShowMenu(this);
-                break;
-        }
-    }
+    /// <summary>
+    /// Applies effect of played card. Should be overriden based on type of card.
+    /// </summary>
+    public virtual void Play() { }
 
-    public void OnClose() { }
-
-    public virtual void Play()
-    {
-        Debug.Log("Play");
-        Deck.Instance.DiscardCard(this);
-        PlayMenuManager.Instance.HideMenu();
-    }
-
+    /// <summary>
+    /// Sends card to discard pile
+    /// </summary>
     public virtual void PurchaseCard()
     {
-        cardType = CardType.Bought;
-        Deck.Instance.DiscardCard(this);
-        PurchaseMenuManager.Instance.HideMenu();
+        if (PlayerStats.Instance.GoldAmount > cardScriptableObject.cardPrice)
+        {
+            PlayerStats.Instance.GoldAmount -= cardScriptableObject.cardPrice;
+            cardType = CardType.Bought;
+            Actions.OnDiscardCard?.Invoke(this);
+        }
     }
 
+    /// <summary>
+    /// Gets the card's Scriptable Object
+    /// </summary>
+    /// <returns></returns>
     public CardSO GetScriptableObject()
     {
         return cardScriptableObject;
+    }
+
+    /// <summary>
+    /// Gets the card type
+    /// </summary>
+    /// <returns></returns>
+    public CardType GetCardType()
+    {
+        return cardType;
     }
 }

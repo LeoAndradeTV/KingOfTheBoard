@@ -1,25 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 public class CardBankManager : MonoBehaviour
 {
-    public static CardBankManager Instance { get; private set; }
-
     [SerializeField] private Transform[] cardBankLocations;
-    [SerializeField] private List<BaseCard> possibleCards = new List<BaseCard>();
-    [SerializeField] private List<int> numberOfCards = new List<int>();
+    [SerializeField] private BaseCard[] possibleCards;
 
     private List<BaseCard> deckOfCards = new List<BaseCard>();
     private Dictionary<BaseCard, int> initialCards = new Dictionary<BaseCard, int>();
 
-    private void Awake()
+    private void OnEnable()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        Actions.OnCardBought += UpdateCardBank;
+    }
+
+    private void OnDisable()
+    {
+        Actions.OnCardBought -= UpdateCardBank;
     }
 
     // Start is called before the first frame update
@@ -28,8 +25,6 @@ public class CardBankManager : MonoBehaviour
         InitializeDictionary();
         InitializeDeck();
         UpdateCardBank();
-
-        Actions.OnCardBought += UpdateCardBank;
     }
 
     /// <summary>
@@ -37,9 +32,10 @@ public class CardBankManager : MonoBehaviour
     /// </summary>
     private void InitializeDictionary()
     {
-        for (int i = 0; i < possibleCards.Count; i++)
+        for (int i = 0; i < possibleCards.Length; i++)
         {
-            initialCards[possibleCards[i]] = numberOfCards[i];
+            int numOfCardsInDeck = possibleCards[i].GetScriptableObject().startingAmountInDeck;
+            initialCards[possibleCards[i]] = numOfCardsInDeck;
         }
     }
 

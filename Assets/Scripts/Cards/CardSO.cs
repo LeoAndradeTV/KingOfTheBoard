@@ -9,4 +9,5 @@ public class CardSO : ScriptableObject
     public string cardDescription;
     public int cardPrice;
     public CardType cardType;
+    public int startingAmountInDeck;
 }
