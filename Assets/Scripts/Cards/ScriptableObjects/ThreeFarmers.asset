@@ -16,3 +16,4 @@ MonoBehaviour:
   cardDescription: Harvest 3 of ANY material
   cardPrice: 3
   cardType: 0
+  startingAmountInDeck: 7

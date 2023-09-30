@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Deck : MonoBehaviour
 {
     [SerializeField] private BaseCard[] possibleCards;
-    [SerializeField] private int[] numberOfCards;
 
     [SerializeField] private Button drawButton;
     [SerializeField] private Button shuffleButton;
@@ -43,7 +42,8 @@ public class Deck : MonoBehaviour
     {
         for (int i = 0; i < possibleCards.Length; i++)
         {
-            initialCards[possibleCards[i]] = numberOfCards[i];
+            int numOfCardsInDeck = possibleCards[i].GetScriptableObject().startingAmountInDeck;
+            initialCards[possibleCards[i]] = numOfCardsInDeck;
         }
     }
 

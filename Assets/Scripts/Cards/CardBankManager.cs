@@ -5,7 +5,6 @@ public class CardBankManager : MonoBehaviour
 {
     [SerializeField] private Transform[] cardBankLocations;
     [SerializeField] private BaseCard[] possibleCards;
-    [SerializeField] private int[] numberOfCards;
 
     private List<BaseCard> deckOfCards = new List<BaseCard>();
     private Dictionary<BaseCard, int> initialCards = new Dictionary<BaseCard, int>();
@@ -35,7 +34,8 @@ public class CardBankManager : MonoBehaviour
     {
         for (int i = 0; i < possibleCards.Length; i++)
         {
-            initialCards[possibleCards[i]] = numberOfCards[i];
+            int numOfCardsInDeck = possibleCards[i].GetScriptableObject().startingAmountInDeck;
+            initialCards[possibleCards[i]] = numOfCardsInDeck;
         }
     }
 
