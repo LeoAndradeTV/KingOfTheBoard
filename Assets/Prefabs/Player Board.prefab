@@ -365,6 +365,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8217508094174442408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3674602413163145942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 882401431672562738}
+  - component: {fileID: 2509679000092327425}
+  m_Layer: 0
+  m_Name: Player Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &882401431672562738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674602413163145942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9148629740963873301}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2509679000092327425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674602413163145942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28905ded014cada4c9c34f5f4df91b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldAmountText: {fileID: 2702963152769297896}
 --- !u!1 &4269161708234975612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,6 +1080,7 @@ Transform:
   - {fileID: 8882421898325066666}
   - {fileID: 8553410803484234561}
   - {fileID: 2627052829635391250}
+  - {fileID: 882401431672562738}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2929860644935667778
@@ -1155,7 +1201,6 @@ MonoBehaviour:
   possibleCards:
   - {fileID: 7546136744214866030, guid: c15d6ce08cfea174aabda4657a9b87f4, type: 3}
   - {fileID: 1950078612798795682, guid: 6a6698a3c794af24386ac441f4ba4c4e, type: 3}
-  numberOfCards: 0500000005000000
   drawButton: {fileID: 7923235945825477558}
   shuffleButton: {fileID: 3423362398054777061}
   hand: {fileID: 6967851553045920967}

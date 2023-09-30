@@ -65,8 +65,12 @@ public class BaseCard : MonoBehaviour
     /// </summary>
     public virtual void PurchaseCard()
     {
-        cardType = CardType.Bought;
-        Actions.OnDiscardCard?.Invoke(this);
+        if (PlayerStats.Instance.GoldAmount > cardScriptableObject.cardPrice)
+        {
+            PlayerStats.Instance.GoldAmount -= cardScriptableObject.cardPrice;
+            cardType = CardType.Bought;
+            Actions.OnDiscardCard?.Invoke(this);
+        }
     }
 
     /// <summary>
