@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6823521408257863481}
   - component: {fileID: 6947279712846492796}
   - component: {fileID: 7036359359986746084}
-  m_Layer: 0
+  - component: {fileID: 4719356486564226220}
+  m_Layer: 6
   m_Name: Battle Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 40, y: 1, z: 40}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2455781107320093188}
@@ -106,6 +107,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4719356486564226220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034296823697823649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37e2bd54c2c0eb40b5d14788b8b5ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 977429660992431836, guid: 872cd2a1d14f7dc42989a8575665f97c, type: 3}
+  - {fileID: 3196856151780037749, guid: 803e43d769c088e42b4e865256af3089, type: 3}
+  - {fileID: 9220210147332786896, guid: 2e1e6fd1ae29e274fb84497122c97844, type: 3}
+  - {fileID: 9123065852927307251, guid: 5faa045760e2e224ea8234fb835c16ce, type: 3}
+  - {fileID: 7492893309843829437, guid: 017e7fe1fc650074e8fc853d913794b7, type: 3}
+  pos: {x: 0, y: 0, z: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  materials: []
+  gridSize: 0
+  materialsByPlayer: []
+  canPlace: 1
+  overlappingGameObject: {fileID: 0}
 --- !u!1 &2365898030643567393
 GameObject:
   m_ObjectHideFlags: 0

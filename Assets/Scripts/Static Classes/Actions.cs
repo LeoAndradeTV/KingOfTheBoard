@@ -14,4 +14,7 @@ public static class Actions
     public static Action<MaterialType, int> OnMaterialRemoved;
     public static Action<int, int> OnHarvestCardPlayed; //int = amount of harvests, int = amount of material per harvest
     public static Action OnHarvestUsed;
+    public static Action<BuildingData> OnBuildingBuilt;
+    public static Action OnBuildingSelected;
+    public static Action<bool> OnPlacementStatusChanged;
 }

@@ -24,6 +24,16 @@ public class ChangeCamera : MonoBehaviour
         SetCamButton(true);
     }
 
+    private void OnEnable()
+    {
+        Actions.OnBuildingSelected += ChangeToTableView;
+    }
+
+    private void OnDisable()
+    {
+        Actions.OnBuildingSelected -= ChangeToTableView;
+    }
+
     private async void LerpCamera(Vector3 location, Vector3 rotation, bool isCamOnBoard)
     {
         Quaternion finalRotation = Quaternion.Euler(rotation);
@@ -46,20 +56,30 @@ public class ChangeCamera : MonoBehaviour
         cam.transform.localRotation = finalRotation;
     }
 
+    private void ChangeToTableView()
+    {
+        LerpCamera(camOnTableLocation, camOnTableRotation, false);
+        changeCamButton.GetComponentInChildren<TMP_Text>().text = "View Board";
+        CanMoveCamera = true;
+    }
+
+    private void ChangeToBoardView()
+    {
+        LerpCamera(camOnBoardLocation, camOnBoardRotation, true); 
+        changeCamButton.GetComponentInChildren<TMP_Text>().text = "View Table";
+        CanMoveCamera = false;
+    }
+
     private void SetCamButton(bool isCamOnBoard)
     {
         if (isCamOnBoard)
         {
             changeCamButton.onClick.RemoveAllListeners();
-            changeCamButton.onClick.AddListener(() => LerpCamera(camOnTableLocation, camOnTableRotation, false));
-            changeCamButton.GetComponentInChildren<TMP_Text>().text = "View Table";
-            CanMoveCamera = false;
+            changeCamButton.onClick.AddListener(() => ChangeToTableView());
         } else
         {
             changeCamButton.onClick.RemoveAllListeners();
-            changeCamButton.onClick.AddListener(() => LerpCamera(camOnBoardLocation, camOnBoardRotation, true));
-            changeCamButton.GetComponentInChildren<TMP_Text>().text = "View Board";
-            CanMoveCamera = true;
+            changeCamButton.onClick.AddListener(() => ChangeToBoardView());
         }
     }
 }

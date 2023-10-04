@@ -10,10 +10,10 @@ public class MaterialManager : MonoBehaviour
     [SerializeField] private TMP_Text stringText;
     [SerializeField] private TMP_Text ironText;
 
-    private int woodAmount;
-    private int rockAmount;
-    private int stringAmount;
-    private int ironAmount;
+    private int woodAmount = 100;
+    private int rockAmount = 100;
+    private int stringAmount = 100;
+    private int ironAmount = 100;
 
 
     public int WoodCounter
