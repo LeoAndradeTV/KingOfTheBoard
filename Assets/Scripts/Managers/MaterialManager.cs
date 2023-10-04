@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MaterialManager : MonoBehaviour
@@ -10,11 +11,10 @@ public class MaterialManager : MonoBehaviour
     [SerializeField] private TMP_Text stringText;
     [SerializeField] private TMP_Text ironText;
 
-    private int woodAmount = 100;
-    private int rockAmount = 100;
-    private int stringAmount = 100;
-    private int ironAmount = 100;
-
+    private int woodAmount;
+    private int rockAmount;
+    private int stringAmount;
+    private int ironAmount;
 
     public int WoodCounter
     {
@@ -61,12 +61,15 @@ public class MaterialManager : MonoBehaviour
     {
         Actions.OnMaterialAdded += AddMaterial;
         Actions.OnMaterialRemoved += RemoveMaterial;
+        Actions.OnBuildingBuilt += RemoveMaterialsFromBuild;
     }
 
     private void OnDisable()
     {
         Actions.OnMaterialAdded -= AddMaterial;
         Actions.OnMaterialRemoved -= RemoveMaterial;
+        Actions.OnBuildingBuilt -= RemoveMaterialsFromBuild;
+
     }
 
     public void AddMaterial(MaterialType materialType, int amountToAdd)
@@ -107,4 +110,11 @@ public class MaterialManager : MonoBehaviour
         }
     }
 
+    public void RemoveMaterialsFromBuild(BuildingData data)
+    {
+        WoodCounter -= data.buildingWoodRequirement;
+        RockCounter -= data.buildingRockRequirement;
+        StringCounter -= data.buildingStringRequirement;
+        IronCounter -= data.buildingIronRequirement;
+    }
 }

@@ -15,6 +15,11 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private Button siegesButton;
     [SerializeField] private Button bankButton;
 
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void Build(BuildingData buildingData)
     {
         if (!PlayerHasEnoughMaterials(buildingData))
