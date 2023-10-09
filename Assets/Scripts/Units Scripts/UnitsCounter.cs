@@ -72,6 +72,8 @@ public class UnitsCounter : MonoBehaviour
                 SiegesAmount += data.unitsPerBuild;
                 break;
         }
+
+        Debug.Log($"Archers: {ArchersAmount}, Knights: {KnightsAmount}, Sieges: {SiegesAmount}");
     }
 
     private void RemoveUnits(BuildingData data)
