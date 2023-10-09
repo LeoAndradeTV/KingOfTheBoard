@@ -41,7 +41,7 @@ public class BuildPlacement : MonoBehaviour
         {
             pendingObject.transform.position = new Vector3(
                 RoundToNearestGrid(pos.x),
-                RoundToNearestGrid(pos.y) - 0.35f,
+                0.5f,
                 RoundToNearestGrid(pos.z));
 
             if (Input.GetMouseButtonDown(0) && mouseOverUIElement)

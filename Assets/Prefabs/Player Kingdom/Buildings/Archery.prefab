@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 711723300176987154}
   - component: {fileID: 5494422072514405122}
   - component: {fileID: 3152782822662874555}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 2508185792453863617}
   - component: {fileID: 2220742151802186357}
   - component: {fileID: 4868538963681401911}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 7169691641094367511}
   - component: {fileID: -158475953505989614}
   - component: {fileID: -516600541231331582}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Archery
   m_TagString: BuiltObject
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ Transform:
   m_GameObject: {fileID: 9220210147332786896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -343,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7036859d28e2cb84c9948a1fcf49fe95, type: 3}
       propertyPath: m_Name
       value: Archery
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7036859d28e2cb84c9948a1fcf49fe95, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7036859d28e2cb84c9948a1fcf49fe95, type: 3}
       propertyPath: m_LocalPosition.x
