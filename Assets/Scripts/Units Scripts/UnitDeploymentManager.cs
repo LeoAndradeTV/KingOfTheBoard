@@ -29,8 +29,10 @@ public class UnitDeploymentManager : MonoBehaviour
         {
             CollectUnits(unitMenuManager.GetCurrentSliderValues());
             PlaceUnits();
-            unitMenuManager.gameObject.SetActive(false);
+            unitMenuManager.Hide();
+            MouseClick.CanSelect = true;
             Actions.OnUnitsDeployed?.Invoke();
+            Actions.OnDiscardCard?.Invoke(unitMenuManager.GetActiveCard());
         });
     }
 
@@ -64,4 +66,5 @@ public class UnitDeploymentManager : MonoBehaviour
             }
         }
     }
+
 }

@@ -18,4 +18,5 @@ public static class Actions
     public static Action OnBuildingSelected;
     public static Action<bool> OnPlacementStatusChanged;
     public static Action OnUnitsDeployed;
+    public static Action<BaseCard> OnAttackCardPlayed;
 }

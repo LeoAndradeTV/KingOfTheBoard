@@ -9,6 +9,8 @@ public class UnitMenuManager : MonoBehaviour
 {
     private UnitsCounter unitsCounter;
 
+    private BaseCard activeCard;
+
     [SerializeField] private Slider archersSlider;
     [SerializeField] private Slider knightsSlider;
     [SerializeField] private Slider siegesSlider;
@@ -21,6 +23,12 @@ public class UnitMenuManager : MonoBehaviour
     {
         gameObject.SetActive(false);
         unitsCounter = GetComponent<UnitsCounter>();
+        Actions.OnAttackCardPlayed += Show;
+    }
+
+    private void OnDestroy()
+    {
+        Actions.OnAttackCardPlayed -= Show;
     }
 
     private void OnEnable()
@@ -51,5 +59,21 @@ public class UnitMenuManager : MonoBehaviour
         archersAmount.text = archersSlider.value.ToString();
         knightsAmount.text = knightsSlider.value.ToString();
         siegesAmount.text = siegesSlider.value.ToString();
+    }
+
+    public void Show(BaseCard card)
+    {
+        gameObject.SetActive(true);
+        activeCard = card;
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public BaseCard GetActiveCard()
+    {
+        return activeCard;
     }
 }

@@ -9645,6 +9645,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3511201051028340315, guid: de12dbe2f5db3934b96377b901f63574,
+        type: 3}
+      propertyPath: possibleCards.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511201051028340315, guid: de12dbe2f5db3934b96377b901f63574,
+        type: 3}
+      propertyPath: possibleCards.Array.data[2]
+      value: 
+      objectReference: {fileID: 2880363471398567569, guid: 0f5144e176b6e93489f98a08ab3de91f,
+        type: 3}
+    - target: {fileID: 4544243860161880429, guid: de12dbe2f5db3934b96377b901f63574,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6801199333368061782, guid: de12dbe2f5db3934b96377b901f63574,
         type: 3}
       propertyPath: m_Camera
