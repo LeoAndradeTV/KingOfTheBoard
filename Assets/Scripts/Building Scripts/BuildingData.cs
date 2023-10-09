@@ -12,4 +12,5 @@ public class BuildingData : ScriptableObject
     public int buildingRockRequirement;
     public int buildingStringRequirement;
     public int buildingIronRequirement;
+    public int unitsPerBuild;
 }

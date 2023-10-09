@@ -27,11 +27,13 @@ public class ChangeCamera : MonoBehaviour
     private void OnEnable()
     {
         Actions.OnBuildingSelected += ChangeToTableView;
+        Actions.OnUnitsDeployed += ChangeToTableView;
     }
 
     private void OnDisable()
     {
         Actions.OnBuildingSelected -= ChangeToTableView;
+        Actions.OnUnitsDeployed -= ChangeToTableView;
     }
 
     private async void LerpCamera(Vector3 location, Vector3 rotation, bool isCamOnBoard)

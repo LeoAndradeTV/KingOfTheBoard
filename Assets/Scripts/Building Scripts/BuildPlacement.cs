@@ -141,6 +141,5 @@ public class BuildPlacement : MonoBehaviour
     private void ToggleCanPlace(bool value)
     {
         canPlace = value;
-        Debug.Log("called");
     }
 }
