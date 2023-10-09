@@ -37,6 +37,7 @@ public class BaseMenuManager : MonoBehaviour
     {
         Actions.OnCardClicked += ShowMenu;
         Actions.OnCardDiscarded += HideMenus;
+
     }
 
     private void OnDisable()
