@@ -19,3 +19,4 @@ MonoBehaviour:
   buildingRockRequirement: 0
   buildingStringRequirement: 0
   buildingIronRequirement: 0
+  unitsPerBuild: 1
