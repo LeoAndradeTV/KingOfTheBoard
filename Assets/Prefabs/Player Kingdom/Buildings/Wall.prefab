@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9114334168519218814}
   - component: {fileID: 4234683156344957067}
   - component: {fileID: 1601971466941494255}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
   m_TagString: BuiltObject
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 977429660992431836}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -106,6 +106,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f46056aa6c238664bb6e0af30f681126, type: 3}
       propertyPath: m_Name
       value: Wall_A_wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f46056aa6c238664bb6e0af30f681126, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f46056aa6c238664bb6e0af30f681126, type: 3}
       propertyPath: m_LocalPosition.x

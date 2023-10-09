@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8179025774989967368}
   - component: {fileID: -3324603225345815383}
   - component: {fileID: -2180174709910065890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sieges
   m_TagString: BuiltObject
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3196856151780037749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 5647879199835048331}
   - component: {fileID: 601470852208163528}
   - component: {fileID: 7807705783074334491}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 8411692658468108478}
   - component: {fileID: 4536295088800251679}
   - component: {fileID: 4777416628615745187}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 06905b5e993435c4e9526f63c49622e3, type: 3}
       propertyPath: m_Name
       value: LumberMill
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 06905b5e993435c4e9526f63c49622e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 06905b5e993435c4e9526f63c49622e3, type: 3}
       propertyPath: m_LocalPosition.x
