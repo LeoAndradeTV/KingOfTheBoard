@@ -4929,34 +4929,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752823662}
   m_CullTransparentMesh: 1
---- !u!1 &1826273772 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6131779738958050646, guid: f188a9e1194549b478615849ed34b056,
-    type: 3}
-  m_PrefabInstance: {fileID: 971632433823882834}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1826273774 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7475765982383150648, guid: f188a9e1194549b478615849ed34b056,
     type: 3}
   m_PrefabInstance: {fileID: 971632433823882834}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826273772}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a37e2bd54c2c0eb40b5d14788b8b5ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1826273778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826273772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd531a145385654b9717cd455577e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1846223717
@@ -5801,82 +5783,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battle Area
       objectReference: {fileID: 0}
-    - target: {fileID: 1034296823697823649, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: m_TagString
-      value: BuiltObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 4719356486564226220, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: gridSize
-      value: 0.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 4719356486564226220, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4719356486564226220, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: buildableLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 4719356486564226220, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: fb1bf291ca795774da8670a79bd96933, type: 2}
-    - target: {fileID: 4719356486564226220, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: bd19d431a1269d341ac24c5f958947f9, type: 2}
-    - target: {fileID: 6131779738958050646, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6499981774346055902, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6499981774346055902, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: m_VoxelSize
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6499981774346055902, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 76307566d5440f645aa16566ac408dda,
-        type: 2}
-    - target: {fileID: 6499981774346055902, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: m_UseGeometry
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6499981774346055902, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: m_MinRegionArea
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6499981774346055902, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: m_LayerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 6499981774346055902, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: m_OverrideTileSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6499981774346055902, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: m_OverrideVoxelSize
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7065955098094559780, guid: f188a9e1194549b478615849ed34b056,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5927,39 +5833,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7475765982383150648, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: gridSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7475765982383150648, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7475765982383150648, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: buildableLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 7475765982383150648, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: fb1bf291ca795774da8670a79bd96933, type: 2}
-    - target: {fileID: 7475765982383150648, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: bd19d431a1269d341ac24c5f958947f9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6131779738958050646, guid: f188a9e1194549b478615849ed34b056,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1826273778}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f188a9e1194549b478615849ed34b056, type: 3}
 --- !u!1001 &4404918200770700829
 PrefabInstance:
@@ -6738,11 +6615,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Board
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923235945825477558, guid: de12dbe2f5db3934b96377b901f63574,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DrawFullHand
       objectReference: {fileID: 0}
     - target: {fileID: 9148629740963873301, guid: de12dbe2f5db3934b96377b901f63574,
         type: 3}
