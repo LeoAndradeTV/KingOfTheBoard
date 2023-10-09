@@ -17,6 +17,7 @@ public class UpdateNavMeshBake : MonoBehaviour
     void OnEnable()
     {
         Actions.OnBuildingBuilt += BakeNavMesh;
+        _meshSurface.BuildNavMesh();
     }
 
     private void OnDisable()
